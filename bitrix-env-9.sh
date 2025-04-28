@@ -444,8 +444,11 @@ configure_remi() {
 #        LINK="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm"
 #    fi
 
-    GPGK="http://rpms.famillecollet.com/RPM-GPG-KEY-remi"
-    LINK="http://rpms.famillecollet.com/enterprise/remi-release-9.rpm"
+	# FIX use repos from mirror
+    #GPGK="http://rpms.famillecollet.com/RPM-GPG-KEY-remi"
+    #LINK="http://rpms.famillecollet.com/enterprise/remi-release-9.rpm"
+	GPGK="https://mirror.docker.ru/remi/enterprise/9/RPM-GPG-KEY-remi"
+    LINK="https://mirror.docker.ru/remi/enterprise/remi-release-9.rpm"
 
     rpm --import "${GPGK}" >> ${LOGS_FILE} 2>&1 || print_e "$MBE0028 ${GPGK}"
     rpm -Uvh "${LINK}" >> ${LOGS_FILE} 2>&1 || print_e "$MBE0029 ${LINK}"
